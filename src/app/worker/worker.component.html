@@ -1,0 +1,40 @@
+<div style="background-color:white;" class="dashboard p-3">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <h4 class=" text-center">Filters</h4>
+          <hr/>
+          <div class="card" style="background-color:transparent;">
+            <div class="card-body">
+              <h4 class="card-title">Status</h4><hr>
+              <div class="form-check" *ngFor="let s of status">
+                <label class="form-check-label">
+                  <input type="checkbox" class="status" name="status" value="checkedValue" >
+                  {{s}}
+                </label><br>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+        <div class="form-group col-md-9">
+      <div class="">
+        <input type="search" class="p-2 pl-4 mb-3" 
+        name="maintenance" id="maintenance" value="" style="width: 100%;height: 50px;border-radius:10px; border-width: 1px;"
+         placeholder="Search By Maintenance Name" [(ngModel)]="searchText"/>
+      </div>
+          <div class="row">
+            <div *ngFor="let worker of workers|filter:searchText">
+            <div class="card m-3" style="width: 18rem;">
+                <div class="text-center">
+                <img src="{{worker.workerImg}}" class="card-img-top w-50" alt="...">
+                </div>
+                <div class="card-body">
+                  <p class="card-title">{{worker.workerName}}</p>
+                  <p class="card-text">{{worker.workerName}}</p>
+                  <a href="#" class="btn btn-primary">Know More</a>
+                </div>
+              </div>
+           </div>
+        </div>
+      </div>        
+</div>
